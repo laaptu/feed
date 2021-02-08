@@ -5,6 +5,7 @@ plugins {
     id 'kotlin-android'
     id 'de.mannodermaus.android-junit5'
     id 'kotlin-kapt'
+    id 'kotlin-android-extensions'
 }
 
 android {
@@ -34,6 +35,13 @@ android {
         jvmTarget = '1.8'
     }
 
+    buildFeatures {
+        dataBinding true
+    }
+    androidExtensions {
+        features = ["parcelize"]
+    }
+
     testOptions {
         junitPlatform {
             configurationParameter "junit.jupiter.testinstance.lifecycle.default", "per_class"
@@ -48,6 +56,7 @@ dependencies {
     implementation Libs.Android.appcompat
     implementation Libs.Android.material
     implementation Libs.Android.constraintLayout
+    implementation Libs.Android.androidxActivity
 
     //Dagger
     implementation Libs.dagger

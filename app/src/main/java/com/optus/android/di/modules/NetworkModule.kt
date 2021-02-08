@@ -1,4 +1,4 @@
-package com.optus.android.di
+package com.optus.android.di.modules
 
 import com.optus.android.BuildConfig
 import com.optus.android.network.Network

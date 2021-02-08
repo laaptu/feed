@@ -15,6 +15,7 @@ object Version {
         const val lifecycleExtension = "2.1.0"
         const val constraintLayout = "2.0.4"
         const val coreKtx = "1.3.2"
+        const val androidxActivity = "1.1.0"
     }
 
     object TestLib {
@@ -50,6 +51,8 @@ object Libs {
         const val constraintLayout =
             "androidx.constraintlayout:constraintlayout:${Version.Android.constraintLayout}"
         const val coreKtx = "androidx.core:core-ktx:${Version.Android.coreKtx}"
+        const val androidxActivity =
+            "androidx.activity:activity-ktx:${Version.Android.androidxActivity}"
     }
 }
 
