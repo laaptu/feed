@@ -24,6 +24,10 @@ class UsersListActivity : ViewModelActivity<UsersListViewModel>(), OnListItemCli
             lifecycleOwner = this@UsersListActivity
             listViewModel = viewModel
         }
+        initViewModel()
+    }
+
+    private fun initViewModel() {
         viewModel.userLists.observe(this) {
             binding.recyclerView.layoutManager = LinearLayoutManager(this@UsersListActivity)
             binding.recyclerView.adapter = UsersListAdapter(this, it)

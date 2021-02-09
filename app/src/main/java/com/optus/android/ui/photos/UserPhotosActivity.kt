@@ -12,6 +12,7 @@ import com.optus.android.base.ViewModelActivity
 import com.optus.android.databinding.ListItemsBinding
 import com.optus.android.network.data.Photo
 import com.optus.android.ui.common.OnListItemClick
+import com.optus.android.ui.detail.PhotoDetailActivity
 
 class UserPhotosActivity : ViewModelActivity<UserPhotosViewModel>(), OnListItemClick<Photo> {
     companion object {
@@ -32,16 +33,22 @@ class UserPhotosActivity : ViewModelActivity<UserPhotosViewModel>(), OnListItemC
         viewModelFactory
     }
     private val binding: ListItemsBinding by binding(R.layout.list_items)
+    private var albumId: Long = INVALID_ALBUM_ID
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val albumId: Long = getAlbumId(intent)
+        albumId = getAlbumId(intent)
         if (albumId == INVALID_ALBUM_ID) {
             Toast.makeText(this, getString(R.string.error_invalid_album_id), Toast.LENGTH_SHORT)
                 .show()
             finish()
             return
         }
+        initViews()
+        initViewModel()
+    }
+
+    private fun initViews() {
         supportActionBar?.apply {
             title = getString(R.string.title_album_id, albumId)
             setDisplayHomeAsUpEnabled(true)
@@ -50,6 +57,9 @@ class UserPhotosActivity : ViewModelActivity<UserPhotosViewModel>(), OnListItemC
             lifecycleOwner = this@UserPhotosActivity
             listViewModel = viewModel
         }
+    }
+
+    private fun initViewModel() {
         viewModel.photoLists.observe(this) {
             binding.recyclerView.layoutManager = LinearLayoutManager(this)
             binding.recyclerView.adapter = PhotosListAdapter(this, it)
@@ -57,7 +67,8 @@ class UserPhotosActivity : ViewModelActivity<UserPhotosViewModel>(), OnListItemC
         viewModel.fetchUserPhotos(albumId)
     }
 
-    override fun itemClicked(item: Photo, index: Int) {
+    override fun itemClicked(photo: Photo, index: Int) {
+        startActivity(PhotoDetailActivity.launchIntent(this, photo))
     }
 
 }
