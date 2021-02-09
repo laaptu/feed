@@ -10,7 +10,7 @@ object Version {
     const val retrofit = "2.6.1"
 
     object Android {
-        const val material = "1.2.1"
+        const val material = "1.3.0"
         const val appcompat = "1.2.0"
         const val lifecycleExtension = "2.1.0"
         const val constraintLayout = "2.0.4"

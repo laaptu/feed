@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="androidx.lifecycle.LiveData" />
+
+        <variable
+            name="listViewModel"
+            type="com.optus.android.ui.common.ListViewModel" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.users.UsersListActivity">
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/pb"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:indeterminate="true"
+            app:show="@{listViewModel.viewState}" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtInfo"
+            style="@style/TextAppearance.AppCompat.Display1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:padding="25dp"
+            android:textSize="22sp"
+            app:show="@{listViewModel.viewState}"
+            tools:text="Something went wrong\ tap to retry" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:show="@{listViewModel.viewState}" />
+
+    </FrameLayout>
+</layout>
