@@ -8,6 +8,7 @@ object Version {
     const val okhttp = "4.2.0"
     const val dagger = "2.24"
     const val retrofit = "2.6.1"
+    const val picasso = "2.71828"
 
     object Android {
         const val material = "1.3.0"
@@ -44,6 +45,8 @@ object Libs {
     const val daggerAndroidSupport = "com.google.dagger:dagger-android-support:${Version.dagger}"
     const val daggerAndroidProcessor =
         "com.google.dagger:dagger-android-processor:${Version.dagger}"
+
+    const val picasso = "com.squareup.picasso:picasso:${Version.picasso}"
 
     object Android {
         const val material = "com.google.android.material:material:${Version.Android.material}"

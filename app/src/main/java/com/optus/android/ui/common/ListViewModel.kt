@@ -8,7 +8,4 @@ abstract class ListViewModel : ViewModel() {
     protected val _viewState: MutableLiveData<ListViewState> = MutableLiveData(InitState)
     val viewState: LiveData<ListViewState> = _viewState
 
-    fun onItemClicked(index: Int) {
-
-    }
 }

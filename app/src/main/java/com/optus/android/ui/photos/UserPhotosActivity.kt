@@ -5,11 +5,15 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.lifecycle.observe
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.optus.android.R
 import com.optus.android.base.ViewModelActivity
 import com.optus.android.databinding.ListItemsBinding
+import com.optus.android.network.data.Photo
+import com.optus.android.ui.common.OnListItemClick
 
-class UserPhotosActivity : ViewModelActivity<UserPhotosViewModel>() {
+class UserPhotosActivity : ViewModelActivity<UserPhotosViewModel>(), OnListItemClick<Photo> {
     companion object {
         private const val ALBUM_ID = "albumId"
         private const val INVALID_ALBUM_ID = -1L
@@ -38,12 +42,22 @@ class UserPhotosActivity : ViewModelActivity<UserPhotosViewModel>() {
             finish()
             return
         }
+        supportActionBar?.apply {
+            title = getString(R.string.title_album_id, albumId)
+            setDisplayHomeAsUpEnabled(true)
+        }
         binding.apply {
             lifecycleOwner = this@UserPhotosActivity
             listViewModel = viewModel
         }
+        viewModel.photoLists.observe(this) {
+            binding.recyclerView.layoutManager = LinearLayoutManager(this)
+            binding.recyclerView.adapter = PhotosListAdapter(this, it)
+        }
         viewModel.fetchUserPhotos(albumId)
     }
 
+    override fun itemClicked(item: Photo, index: Int) {
+    }
 
 }

@@ -72,6 +72,7 @@ dependencies {
     implementation Libs.retrofitJsonConverter
     implementation Libs.gson
 
+    implementation Libs.picasso
 
     testImplementation TestLibs.junit5
     testImplementation TestLibs.junit5Params

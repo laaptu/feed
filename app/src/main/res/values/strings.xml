@@ -6,4 +6,5 @@
     <string name="user_id">ID: %d</string>
     <string name="user_info">Name: %1$s\nEmail: %2$s\nPhone: %3$s</string>
     <string name="error_invalid_album_id">Please pass a valid album id</string>
+    <string name="title_album_id">Album ID: %d</string>
 </resources>
