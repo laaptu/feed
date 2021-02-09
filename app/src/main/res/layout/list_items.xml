@@ -41,6 +41,10 @@
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingLeft="7dp"
+            android:paddingTop="10dp"
+            android:paddingRight="7dp"
             app:show="@{listViewModel.viewState}" />
 
     </FrameLayout>

@@ -51,6 +51,8 @@ object Libs {
         const val constraintLayout =
             "androidx.constraintlayout:constraintlayout:${Version.Android.constraintLayout}"
         const val coreKtx = "androidx.core:core-ktx:${Version.Android.coreKtx}"
+        const val liveData =
+            "androidx.lifecycle:lifecycle-livedata-ktx:${Version.Android.lifecycleExtension}"
         const val androidxActivity =
             "androidx.activity:activity-ktx:${Version.Android.androidxActivity}"
     }

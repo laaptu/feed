@@ -57,6 +57,7 @@ dependencies {
     implementation Libs.Android.material
     implementation Libs.Android.constraintLayout
     implementation Libs.Android.androidxActivity
+    implementation Libs.Android.liveData
 
     //Dagger
     implementation Libs.dagger

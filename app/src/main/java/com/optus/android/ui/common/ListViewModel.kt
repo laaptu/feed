@@ -5,6 +5,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 abstract class ListViewModel : ViewModel() {
-    protected val _viewState: MutableLiveData<ListViewState> = MutableLiveData(ProgressState)
+    protected val _viewState: MutableLiveData<ListViewState> = MutableLiveData(InitState)
     val viewState: LiveData<ListViewState> = _viewState
+
+    fun onItemClicked(index: Int) {
+
+    }
 }
